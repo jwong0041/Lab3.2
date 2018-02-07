@@ -11,11 +11,11 @@ public class ArrayMethods2
 		int[] list = {4, 8, 3, 1, 0, 2, 6, 5, 7, 9};
 		String[] list1 = {"a", "d", "e", "h", "j"};
 		String[] list2 = {"b", "c", "f", "g", "i"};
-		String[] list3 = {};
+		String[] list3 = new String[list1.length + list2.length];
 		
 		System.out.println(Arrays.toString(list1));
 		System.out.println(Arrays.toString(list2));
-		merge(list1, list2);
+		merge(list1, list2, list3);
 		System.out.println(Arrays.toString(list3));
 	}
 	
@@ -28,7 +28,7 @@ public class ArrayMethods2
 	
 		//precondition: both list1 and list2 are in alphabetical order
 	//list1 is from 0 to x //list2 is from x+1 to y
-		public static String[] merge(String[] list1, String[] list2)
+		public static String[] merge(String[] list1, String[] list2, String[] list3)
 		{
 			int x = list1.length;
 			int y = list2.length;
@@ -51,7 +51,17 @@ public class ArrayMethods2
 					b++;
 				}
 			}
-			return (sorted);
+			
+			int e = 0;
+			int d = 0;
+			
+			while(d < sorted.length)
+			{
+				sorted[d] = list3[e];
+				d++;
+				e++;
+			}
+			return list3;
 		}
 	
 		
