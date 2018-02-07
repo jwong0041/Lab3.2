@@ -11,24 +11,23 @@ public class ArrayMethods2
 		int[] list = {4, 8, 3, 1, 0, 2, 6, 5, 7, 9};
 		String[] list1 = {"a", "d", "e", "h", "j"};
 		String[] list2 = {"b", "c", "f", "g", "i"};
-		String[] list3 = new String[list1.length + list2.length];
+		String[] list3 = merge(list1,list2);
 		
 		System.out.println(Arrays.toString(list1));
 		System.out.println(Arrays.toString(list2));
-		merge(list1, list2, list3);
 		System.out.println(Arrays.toString(list3));
 	}
 	
 	/*
 		public static int partition(int[] list)
 		{
-		
+		int pivot =
 		}
 		*/
 	
 		//precondition: both list1 and list2 are in alphabetical order
 	//list1 is from 0 to x //list2 is from x+1 to y
-		public static String[] merge(String[] list1, String[] list2, String[] list3)
+		public static String[] merge(String[] list1, String[] list2)
 		{
 			int x = list1.length;
 			int y = list2.length;
@@ -40,28 +39,34 @@ public class ArrayMethods2
 			
 			while(a < x && b < y)
 			{
-				if(list1[a].compareTo(list2[b]) > 0 )
+				if(list1[a].compareTo(list2[b]) <= 0 )
 				{
 					sorted[c] = list1[a];
 					c++;
 					a++;
-				} else if(list1[a].compareTo(list2[b]) < 0) {
+				} else if(list1[a].compareTo(list2[b]) > 0) {
 					sorted[c] = list2[b];
 					c++;
 					b++;
 				}
 			}
 			
-			int e = 0;
-			int d = 0;
-			
-			while(d < sorted.length)
+			while (a < x)
 			{
-				sorted[d] = list3[e];
-				d++;
-				e++;
+				sorted[c] = list1[a];
+				a++;
+				c++;
 			}
-			return list3;
+			
+			while(b < y)
+			{
+				sorted[c] = list2[b];
+				b++;
+				c++;
+			}
+			
+			return sorted;
+			
 		}
 	
 		
