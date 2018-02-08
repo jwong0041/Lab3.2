@@ -1,6 +1,7 @@
 //Author: Joyin Wong
 //a b c d e f g h i j 
 import java.util.Arrays;
+import java.util.Random;
 
 public class ArrayMethods2 
 {
@@ -18,13 +19,24 @@ public class ArrayMethods2
 		System.out.println(Arrays.toString(list3));
 	}
 	
-	/*
+	
 		public static int partition(int[] list)
 		{
-		int pivot = f;
-		double f = Math.random
+			
+		Random rand = new Random();
+		int f = rand.nextInt(2);
+		int pivot = 0;
+		
+		if(f == 0)
+		{
+			pivot = 0;
+		} else {
+			pivot = list.length;
 		}
-		*/
+		
+		
+		}
+		
 	
 		//precondition: both list1 and list2 are in alphabetical order
 	//list1 is from 0 to x //list2 is from x+1 to y
