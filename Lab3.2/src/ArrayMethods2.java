@@ -1,7 +1,5 @@
 //Author: Joyin Wong
-//a b c d e f g h i j 
 import java.util.Arrays;
-
 
 public class ArrayMethods2 
 {
@@ -25,6 +23,9 @@ public class ArrayMethods2
 		System.out.println("Merge Sequence took: " + time + " nanoseconds.");
 		System.out.println(Arrays.toString(list3));
 		
+		System.out.println();
+		System.out.println("__________");
+		System.out.println();
 		
 		//Partition test
 		System.out.println(Arrays.toString(list));
@@ -41,6 +42,7 @@ public class ArrayMethods2
 	
 		public static int partition(int[] list)
 		{
+			/*
 			int last = list.length;
 			int first = 0;
 			int pivot = list[first];
@@ -51,6 +53,21 @@ public class ArrayMethods2
 			       swapI(list, first, last);
 			}
 	      return first;
+	      */
+			int pivot =list[0];
+			int i=0;
+			int j=list[list.length-1];
+			while(pivot>list[i])
+			{
+				swapI(list,pivot,i);
+				i++;
+			}
+			while(pivot<list[j])
+			{
+				swapI(list,pivot,j);
+				j--;
+			}
+			return pivot;
 		}
 		
 	
